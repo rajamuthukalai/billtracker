@@ -1,0 +1,5 @@
+<p>
+  parent works!
+  {{fromChild}}
+  <app-child [fromParent]="toChild" (toParent)="receiveMessage($event)"></app-child>
+</p>

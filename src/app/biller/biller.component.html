@@ -1,0 +1,22 @@
+<h2>Billers</h2>
+<div>
+
+  <input autofocus type="text" [(ngModel)]="biller.name" (focus)="error=''" placeholder="Enter New biller"/>
+  <button name="addCategoryBtn" (click)="addBiller()">Add Biller</button>
+  <span *ngIf="error">
+    <label for="error" style="color: red">{{error}}</label>
+  </span>
+</div>
+<hr/>
+<div *ngIf="billers">
+  <ul>
+    <li *ngFor="let biller of billers">
+     <span (click)="onSelect(biller)">{{biller.name}}</span>
+      <span><button class="btn btn-success" (click)="removeBiller(biller)">Delete</button></span>
+    </li>
+    <span *ngIf="selectedBiller"> 
+        <input type="text" [(ngModel)]="selectedBiller.name">
+        <button class="btn btn-success" (click)="updateBiller(selectedBiller)">Update</button> 
+      </span>
+  </ul>
+</div>

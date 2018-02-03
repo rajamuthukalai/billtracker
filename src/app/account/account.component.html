@@ -1,0 +1,27 @@
+<div>
+  <label for="categories">Category:</label>
+  <select [(ngModel)]="selectedCategory">
+    <option *ngFor="let category of categories" [ngValue]="category">{{category.name}}</option>
+  </select>
+</div>
+<div>
+  <label for="billers">Biller/Company:</label>
+  <select [(ngModel)]="selectedBiller">
+    <option *ngFor="let biller of billers" [ngValue]="biller">{{biller.name}}</option>
+  </select>
+</div>
+<div>
+    <label for="accountNumber">Account Number:</label>
+    <input type="text" [(ngModel)]="account.accountNumber" />
+</div>
+<div>
+    <label for="mobile">Mobile:</label>
+    <input type="text" [(ngModel)]="account.mobile" />
+</div>
+<button (click)="addAccount()">Create</button>
+
+<div *ngIf="accounts">
+  <ul>
+    <li *ngFor="let account of accounts">{{account.accountNumber}}</li>
+  </ul>
+</div>

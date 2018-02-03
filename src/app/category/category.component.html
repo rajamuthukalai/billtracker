@@ -1,0 +1,25 @@
+<h2>Categories</h2>
+<div>
+  <!--
+    <input #textbox type="text" placeholder="Enter New Category"/>
+    <button name="addCategoryBtn" (click)="addCategory(textbox.value)">Add Category</button> 
+  -->
+  <input autofocus type="text" [(ngModel)]="category.name" (focus)="error=''" placeholder="Enter New Category"/>
+  <button name="addCategoryBtn" (click)="addCategory()">Add Category</button>
+  <span *ngIf="error">
+    <label for="error" style="color: red">{{error}}</label>
+  </span>
+</div>
+<hr/>
+<div *ngIf="categories">
+  <ul>
+    <li *ngFor="let category of categories">     
+     <span (click)="onSelect(category)">{{category.name}}</span>
+      <span><button class="btn btn-success" (click)="removeCategory(category)">Delete</button></span>
+    </li>
+    <span *ngIf="selectedCategory"> 
+      <input type="text" [(ngModel)]="selectedCategory.name">
+      <button class="btn btn-success" (click)="updateCategory(selectedCategory)">Update</button> 
+    </span>
+  </ul>
+</div>
